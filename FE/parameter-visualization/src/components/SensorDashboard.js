@@ -14,6 +14,9 @@ const SensorDashboard = () => {
     fetchData();
   }, []);
 
+  /**
+   * Function to fetch data from the API and update state variables.
+   */
   const fetchData = async () => {
     try {
       const response = await axios.get("http://localhost:8000/all-data");
@@ -24,6 +27,12 @@ const SensorDashboard = () => {
     }
   };
 
+  /**
+   * Function to format raw data fetched from the API into chart data format.
+   * @param {Object} data - Raw sensor data fetched from the API.
+   * @param {string} filterType - Type of data to filter (numeric or text).
+   * @returns {Array} Formatted chart data.
+   */
   const formatChartData = (data, filterType) => {
     const datasets = Object.entries(data).map(([device, entries]) => {
       const deviceData = entries
@@ -55,7 +64,14 @@ const SensorDashboard = () => {
     setSelectedTextParameter(e.target.value);
   };
 
-  const filterChartData = (chartData, selectedParameter, dataType) => {
+  /**
+   * Function to filter chart data based on selected parameter and data type.
+   * @param {Array} chartData - Original chart data.
+   * @param {string} selectedParameter - Selected parameter to filter.
+   * @param {string} dataType - Type of data (numeric or text).
+   * @returns {Array} Filtered chart data.
+   */
+  const filterChartData = (chartData, selectedParameter) => {
     return chartData.map((dataset) => ({
       ...dataset,
       x: dataset.x.filter(
@@ -71,15 +87,18 @@ const SensorDashboard = () => {
   // Usage:
   const filteredNumericData = filterChartData(
     chartNumericData,
-    selectedNumericParameter,
-    "numeric"
+    selectedNumericParameter
   );
   const filteredTextData = filterChartData(
     chartTextData,
-    selectedTextParameter,
-    "text"
+    selectedTextParameter
   );
 
+  /**
+   * Function to get unique parameters from chart data.
+   * @param {Array} chartData - Original chart data.
+   * @returns {Array} Array of unique parameters.
+   */
   const getUniqueParameters = (chartData) => {
     return chartData.length > 0 ? Array.from(new Set(chartData[0].text)) : [];
   };

@@ -49,4 +49,5 @@ This is a project that consists of a backend Python application and a frontend R
 - Frontend
   - Test Case Implementations
   - Find an alternative way to display text data graph
-  -
+  - Improved Error Handling & Caching graph data on errors
+  - UI/UX Improvements

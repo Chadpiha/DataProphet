@@ -1,12 +1,11 @@
 from fastapi import Depends, FastAPI, HTTPException
-from app.database import engine, SessionLocal
-from sqlalchemy.orm import sessionmaker, Session, relationship
-from sqlalchemy.ext.declarative import declarative_base
+from app.database import SessionLocal
+from sqlalchemy.orm import Session
 from datetime import datetime
 import json
 import os
 from fastapi.middleware.cors import CORSMiddleware
-from app.models import Base, Device, DataPoint
+from app.models import Device, DataPoint
 
 # FastAPI Application
 app = FastAPI()

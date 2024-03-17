@@ -1,14 +1,27 @@
-# Project Name
+# Chad Piha DataProphet Assignment
 
 ## Description
 
 This is a project that consists of a backend Python application and a frontend React application. The backend provides API endpoints using FastAPI, while the frontend is a web application built with React.
 
+This project was built to visualize sensor data over time. It fetches data from a backend API and displays it in interactive charts.
+
+## Features
+
+- Data Visualization: Utilizes Plotly.js to render interactive line charts for numeric sensor data and scatter charts for text-based sensor data.
+- Filtering: Allows users to filter data by selecting parameters from dropdown menus.
+
+## Decisions Made
+
+- Plotly.js: Chose Plotly.js for data visualization due to its versatility and interactivity. It offers a wide range of chart types and customization options.
+- Axios for Data Fetching: Utilized Axios for making HTTP requests to the backend API. Axios provides a simple and efficient way to handle asynchronous data fetching.
+- Choice of backend framework: FastAPI was chosen due to its simplicity, performance, and support for asynchronous programming. It provides automatic validation, serialization, and documentation of API endpoints, reducing development time.
+- Database Selection: SQLite was chosen as the database due to its simplicity and ease of setup for development purposes. It allows rapid prototyping and testing without the need for a separate database server.
+- Containerization: Docker was used to containerize the application, ensuring consistency across different development environments and OS's
+
 ## Prerequisites
 
 - Docker: [Installation Guide](https://docs.docker.com/get-docker/)
-- Node.js and npm: [Installation Guide](https://nodejs.org/en/download/)
-- Python 3.9 or later: [Installation Guide](https://www.python.org/downloads/)
 
 ## Installation
 
